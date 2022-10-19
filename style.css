@@ -1,3 +1,8 @@
+:root {
+    --main-color: #317EEB;
+    --hover-color: #2764BA;
+  }
+
 body{
     background-color:#fff6e6;
     padding: 0px;
@@ -65,3 +70,13 @@ button{
     width: 600px;
 }
 
+.gridSquare{
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    float:left;
+}
+
+.gridSquare:hover{
+    background-color: rgb(190, 190, 190);
+}
