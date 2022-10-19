@@ -75,7 +75,7 @@ button{
     border-style: solid;
     border-width: 1px;
     float:left;
-    draggable: false;
+    
 }
 
 .gridSquareFilled{

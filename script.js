@@ -4,8 +4,9 @@
 // Global vars
 let penColor = "black";
 let backgroundColor = "white";
+let gridSize = 8;
 
-drawboard(8);
+drawboard(gridSize);
 
 
 // Attach listeners to all buttons
@@ -24,6 +25,9 @@ function handleUserSelection(btn){
             break;
         case "eraserButton":
             document.querySelector('#sketchPad').innerHTML='';
+            break;
+        case "resetButton":
+            drawboard(gridSize);
             break;
     }
 }
@@ -67,6 +71,8 @@ function drawboard(size){
                 square.style.backgroundColor = "black";
             }
         });
+
+        square.draggable = false;
 
 
         // Add to the pad
