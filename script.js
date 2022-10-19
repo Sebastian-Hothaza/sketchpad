@@ -61,10 +61,12 @@ function drawboard(size){
 
         // We detect the initial click
         square.addEventListener('mousedown', (e) => {
+            e.preventDefault();
             square.style.backgroundColor = "black";
         });
 
         square.addEventListener('mouseenter', (e) => {
+            
             // If we have an entry in a square, we only color it if mouse button is pressed
             if(e.buttons == 1){
                 console.log("colored a square!");
