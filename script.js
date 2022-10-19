@@ -5,6 +5,8 @@
 let penColor = "black";
 let backgroundColor = "white";
 
+drawboard(8);
+
 
 // Attach listeners to all buttons
 const userButtons = document.querySelectorAll('button');
@@ -19,7 +21,6 @@ function handleUserSelection(btn){
     console.log("User clicked on " + btn);
     switch (btn){
         case "penButton":
-            drawboard(8);
             break;
         case "eraserButton":
             document.querySelector('#sketchPad').innerHTML='';
