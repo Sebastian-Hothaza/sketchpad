@@ -1,0 +1,67 @@
+body{
+    background-color:#fff6e6;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button{
+    width: 200px;
+    padding: 10px;
+    background-color: #c69239;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 5px;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 36px;
+    font-weight: 800;
+    background-color: #d2cabc;
+    color: #c69239;
+    text-shadow: 2px 2px #715320;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    background-color: #d2cabc;
+    color: #c69239;
+  
+    margin-top: 200px;
+    padding: 1em;
+    font-size: 18px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    gap: 100px;
+}
+
+.controlPanels{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    gap: 50px;
+    padding: 0px 20px;
+}
+
+.modePanel, .colorPanel, .padPanel{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sketchPad{
+    border-style: solid;
+    height: 600px;
+    width: 600px;
+}
+
