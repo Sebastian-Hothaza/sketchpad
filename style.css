@@ -59,7 +59,7 @@ button{
     gap: 5px;
 }
 
-.sketchPad{
+#sketchPad{
     border-style: solid;
     height: 600px;
     width: 600px;
