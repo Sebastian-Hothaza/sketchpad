@@ -4,11 +4,13 @@
 
 // Attach listeners to all buttons
 const userButtons = document.querySelectorAll('button');
-console.log(userButtons);
-
 userButtons.forEach((userBtn) => {
     userBtn.addEventListener('click', (e) => {
-        console.log(e.id);
+        handleUserSelection(e.target.id);
     });
 });
 
+
+function handleUserSelection(btn){
+    console.log("User clicked on " + btn);
+}
