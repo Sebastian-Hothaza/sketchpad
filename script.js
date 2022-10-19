@@ -2,7 +2,7 @@
 // Copyright Sebastian Hothaza
 
 // Global vars
-let penColor = "black";
+let penColor = document.getElementById("colorSelection").value;
 let backgroundColor = "white";
 let gridSize = 8;
 
@@ -22,12 +22,25 @@ function handleUserSelection(btn){
     console.log("User clicked on " + btn);
     switch (btn){
         case "penButton":
+            penColor = document.getElementById("colorSelection").value;
             break;
         case "eraserButton":
-            document.querySelector('#sketchPad').innerHTML='';
+            penColor = backgroundColor;
             break;
+        case "rainbowButton":
+            break;
+
+        case "penColorButton":
+            penColor = document.getElementById("colorSelection").value;
+            break;
+        case "backgroundColorButton":
+            break;
+
+
         case "resetButton":
             drawboard(gridSize);
+            break;
+        case "padSizeButton":
             break;
     }
 }
@@ -62,7 +75,7 @@ function drawboard(size){
         // We detect the initial click
         square.addEventListener('mousedown', (e) => {
             e.preventDefault();
-            square.style.backgroundColor = "black";
+            square.style.backgroundColor = penColor;
         });
 
         square.addEventListener('mouseenter', (e) => {
@@ -70,7 +83,7 @@ function drawboard(size){
             // If we have an entry in a square, we only color it if mouse button is pressed
             if(e.buttons == 1){
                 console.log("colored a square!");
-                square.style.backgroundColor = "black";
+                square.style.backgroundColor = penColor;
             }
         });
 
