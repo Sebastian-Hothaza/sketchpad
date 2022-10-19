@@ -46,25 +46,32 @@ function drawboard(size){
 
 
 
-
-
-
-
-
         // Styling of the divs 
+        // TODO: Make work with user selectable background color instead of the hardcoded white in the CSS
         square.style.cssText = `height:${(gridDimension-2*size)/size}px; width:${(gridDimension-2*size)/size}px;`
         // Assigning the squares an ID so that we can define hover property in CSS
         square.classList.add('gridSquare')
+        
+
+        // Adding listeners to the pads
+
+        // We detect the initial click
+        square.addEventListener('mousedown', (e) => {
+            square.style.backgroundColor = "black";
+        });
+
+        square.addEventListener('mouseenter', (e) => {
+            // If we have an entry in a square, we only color it if mouse button is pressed
+            if(e.buttons == 1){
+                console.log("colored a square!");
+                square.style.backgroundColor = "black";
+            }
+        });
 
 
-
-
-
-
-
-
-        // Add to the padS
+        // Add to the pad
         padHook.appendChild(square);
+
         // If we are on last element to print on current row, then add a blank div to proceed to new line
         if ((i+1)%size == 0){
             const newlineDiv = document.createElement('div');
