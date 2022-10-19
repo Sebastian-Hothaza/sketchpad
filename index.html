@@ -19,15 +19,22 @@
                 <button id="rainbowButton">Rainbow</button>
             </div>
 
+            <!-- TODO: The way the color picker is setup here is very poor and should be revised!-->
             <div class="colorPanel" style="position:relative; ">
-                <button id="penColorButton">Pen Color</button>
-                <input id="colorSelection" type="color" value="#ff0000" style="opacity:0; position:absolute; left:0;top:0;width:100%"/>
+                <div class="penColorDiv">
+                    <button id="penColorButton">Pen Color</button>
+                    <input id="colorSelection" type="color" value="#000000" style="opacity:0%; position:absolute; left:0;top:0;width:100%; height: 50%;"/>
+                </div>
                 
-                <button id="backgroundColorButton">Background Color</button>
+                <div class="penColorDiv">
+                    <button id="backgroundColorButton">Background Color</button>
+                    <input id="colorBackgroundSelection" type="color" value="#ffffff" style="opacity:0%; position:absolute; left:0;top:50%;width:100%; height: 50%;"/>
+                </div>
+                
             </div>
 
             <div class="padPanel">
-                <button id="resetButton">Reset</button>
+                <button id="resetButton">Reset Pad</button>
                 <button id="padSizeButton">Pad Size</button>
             </div>
         </div>

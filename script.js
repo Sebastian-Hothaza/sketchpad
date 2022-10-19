@@ -2,11 +2,22 @@
 // Copyright Sebastian Hothaza
 
 // Global vars
-let penColor = document.getElementById("colorSelection").value;
+let penColor = "black";
 let backgroundColor = "white";
 let gridSize = 8;
 
 drawboard(gridSize);
+
+// Attatch listeners for colors
+let colorPicker = document.getElementById("colorSelection");
+colorPicker.addEventListener('input', () =>{
+    penColor = document.getElementById("colorSelection").value;
+});
+let colorBkPicker = document.getElementById("colorBackgroundSelection");
+colorBkPicker.addEventListener('input', () =>{
+    backgroundColor = document.getElementById("colorBackgroundSelection").value;
+    drawboard(gridSize);
+});
 
 
 // Attach listeners to all buttons
@@ -38,9 +49,18 @@ function handleUserSelection(btn){
 
 
         case "resetButton":
+            backgroundColor="white";
+            penColor = "black";
             drawboard(gridSize);
             break;
         case "padSizeButton":
+            let desiredSize = prompt("Please enter a pad height: (1-50)", "8");
+            if (desiredSize != null && Number.isInteger(parseInt(desiredSize)) && desiredSize <=50 && desiredSize>=1) {
+                gridSize=desiredSize;
+                drawboard(gridSize);
+            }else{
+                alert("Error! You must enter an integer number between 1 and 50");
+            }
             break;
     }
 }
@@ -68,6 +88,7 @@ function drawboard(size){
         square.style.cssText = `height:${(gridDimension-2*size)/size}px; width:${(gridDimension-2*size)/size}px;`
         // Assigning the squares an ID so that we can define hover property in CSS
         square.classList.add('gridSquare')
+        square.style.backgroundColor = backgroundColor;
         
 
         // Adding listeners to the pads
