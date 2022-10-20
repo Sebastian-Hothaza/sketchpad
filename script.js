@@ -53,14 +53,10 @@ function handleUserSelection(btn){
             document.getElementById('eraserButton').classList.remove('selected');
             document.getElementById('rainbowButton').classList.add('selected');
             break;
-
         case "penColorButton":
-            penColor = document.getElementById("colorSelection").value;
             break;
         case "backgroundColorButton":
             break;
-
-
         case "resetButton":
             backgroundColor="white";
             penColor = "black";
@@ -94,19 +90,13 @@ function drawboard(size){
     for (let i=0; i<size*size; i++){
         const square = document.createElement('div');
 
-
-
         // Styling of the divs 
-        // TODO: Make work with user selectable background color instead of the hardcoded white in the CSS
         square.style.cssText = `height:${(gridDimension-2*size)/size}px; width:${(gridDimension-2*size)/size}px;`
         // Assigning the squares an ID so that we can define hover property in CSS
         square.classList.add('gridSquare')
         square.style.backgroundColor = backgroundColor;
         
-
         // Adding listeners to the pads
-
-        // We detect the initial click
         square.addEventListener('mousedown', (e) => {
             e.preventDefault();
             if (!rainbow){
@@ -115,7 +105,6 @@ function drawboard(size){
                 square.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);;
             }
         });
-
         square.addEventListener('mouseenter', (e) => {
             // If we have an entry in a square, we only color it if mouse button is pressed
             if(e.buttons == 1){
@@ -126,9 +115,7 @@ function drawboard(size){
                 }
             }
         });
-
         square.draggable = false;
-
 
         // Add to the pad
         padHook.appendChild(square);
@@ -138,16 +125,7 @@ function drawboard(size){
             const newlineDiv = document.createElement('div');
             newlineDiv.style.cssText = "clear: left;";
             padHook.appendChild(newlineDiv);
-        }
-        
-    }
-
-    
-
-    // Styling the divs
-    //square.classList.add('square')
-    
-
-    
+        } 
+    }    
 }
 
