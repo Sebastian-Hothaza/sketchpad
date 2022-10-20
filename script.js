@@ -5,6 +5,7 @@
 let penColor = "black";
 let backgroundColor = "white";
 let gridSize = 8;
+let rainbow = false;
 
 drawboard(gridSize);
 
@@ -34,11 +35,23 @@ function handleUserSelection(btn){
     switch (btn){
         case "penButton":
             penColor = document.getElementById("colorSelection").value;
+            rainbow = false;
+            document.getElementById('penButton').classList.add('selected');
+            document.getElementById('eraserButton').classList.remove('selected');
+            document.getElementById('rainbowButton').classList.remove('selected');
             break;
         case "eraserButton":
             penColor = backgroundColor;
+            rainbow = false;
+            document.getElementById('penButton').classList.remove('selected');
+            document.getElementById('eraserButton').classList.add('selected');
+            document.getElementById('rainbowButton').classList.remove('selected');
             break;
         case "rainbowButton":
+            rainbow=true;
+            document.getElementById('penButton').classList.remove('selected');
+            document.getElementById('eraserButton').classList.remove('selected');
+            document.getElementById('rainbowButton').classList.add('selected');
             break;
 
         case "penColorButton":
@@ -96,15 +109,21 @@ function drawboard(size){
         // We detect the initial click
         square.addEventListener('mousedown', (e) => {
             e.preventDefault();
-            square.style.backgroundColor = penColor;
+            if (!rainbow){
+                square.style.backgroundColor = penColor;
+            }else{
+                square.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);;
+            }
         });
 
         square.addEventListener('mouseenter', (e) => {
-            
             // If we have an entry in a square, we only color it if mouse button is pressed
             if(e.buttons == 1){
-                console.log("colored a square!");
-                square.style.backgroundColor = penColor;
+                if (!rainbow){
+                    square.style.backgroundColor = penColor;
+                }else{
+                    square.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);;
+                }
             }
         });
 
